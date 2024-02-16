@@ -1,0 +1,35 @@
+﻿@model Admin_panel.Models.Data.SuperMarket
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "SPDelete";
+}
+
+<h3>Delete Super Market</h3>
+
+<p>Are you sure you want to delete this?</p>
+<div>
+   
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+           Super Market Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sp_name)
+        </dd>
+        <dt class = "col-sm-2">
+           Super Market Town
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sp_town)
+        </dd>
+    </dl>
+    
+    <form asp-action="SPDelete" method="post">
+        <input type="hidden" asp-for="sp_id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="btn btn-secondary" asp-action="SuperMarketList">Back to List</a>
+    </form>
+</div>

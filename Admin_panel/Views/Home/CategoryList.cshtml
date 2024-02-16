@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Admin_panel.Models.Data.Category>
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "CategoryList";
+}
+@if(TempData["done"]!=null){
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>@TempData["done"]</strong> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+}
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>@TempData["success"]</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<h3>Category List</h3>
+
+<p>
+    <a class="btn btn-primary" asp-action="AddCategory">Add Categories</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Category Name
+            </th>
+            <th>
+               Category Status
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cat_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cat_status)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Cat_Edit" asp-route-id="@item.cat_id">Edit</a> |
+              @*   <a asp-action="Details" asp-route-id="@item.cat_id">Details</a> | *@
+                <a class="btn btn-danger" asp-action="Cat_Delete" asp-route-id="@item.cat_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

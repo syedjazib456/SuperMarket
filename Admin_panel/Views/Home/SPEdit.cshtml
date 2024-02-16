@@ -1,0 +1,41 @@
+﻿@model Admin_panel.Models.Data.SuperMarket
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "SPEdit";
+}
+
+<h3>Edit Super Market</h3>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SPEdit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="sp_id" />
+            <div class="form-group">
+                <label asp-for="sp_name" class="control-label">Super Market Name</label>
+                <input asp-for="sp_name" class="form-control" />
+                <span asp-validation-for="sp_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sp_town" class="control-label">Super Market Town</label>
+                <input asp-for="sp_town" class="form-control" />
+                <span asp-validation-for="sp_town" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-secondary" asp-action="SuperMarketList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

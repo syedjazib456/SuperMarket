@@ -1,0 +1,85 @@
+﻿@model Admin_panel.Models.Data.Product
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "AddProduct";
+}
+
+<h3>AddProduct</h3>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddProduct" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="p_name" class="control-label">Product Name</label>
+                <input asp-for="p_name" class="form-control" />
+                <span asp-validation-for="p_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="p_description" class="control-label">Product Description</label>
+                <input asp-for="p_description" class="form-control" />
+                <span asp-validation-for="p_description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="p_mrp" class="control-label">Product Market Price</label>
+                <input asp-for="p_mrp" class="form-control" />
+                <span asp-validation-for="p_mrp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="p_price" class="control-label">Product Price</label>
+                <input asp-for="p_price" class="form-control" />
+                <span asp-validation-for="p_price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="p_stock" class="control-label">Stock</label>
+                <select asp-for="p_stock" class="form-control">
+                    <option selected disabled>--- Select stock ---</option>
+                    <option value="In Stock">In Stock</option>
+                    <option value="Out of Stock">Out of Stock</option>
+                </select>
+                <span asp-validation-for="p_stock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="p_category" class="control-label">Product Category</label>
+                <select asp-for="p_category" class ="form-control" >
+                    <option disabled selected>--- Select Category ---</option>
+                    @foreach (var item2 in ViewBag.cat)
+                    {
+                        <option class="form-control" value="@item2.cat_id">@item2.cat_name</option>
+                    }
+                </select>
+              
+            </div>
+            <div class="form-group">
+                <label asp-for="p_supermart" class="control-label"></label>
+                <select asp-for="p_supermart" class ="form-control" >
+                    <option disabled selected>--- Select Super Market ---</option>
+                    @foreach (var item in ViewBag.supermart)
+                    {
+                        <option class="form-control" value="@item.sp_id">@item.sp_name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="p_image" class="control-label">Product Image</label>
+                <input asp-for="p_image" class="form-control" />
+                <span asp-validation-for="p_img" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Product" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-secondary" asp-action="ProdList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

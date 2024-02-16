@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\register.cshtml" />
+    <Content Remove="Views\Web\cart.cshtml" />
+    <Content Remove="Views\Web\chackout.cshtml" />
+    <Content Remove="Views\Web\contact - Copy.cshtml" />
+    <Content Remove="Views\Web\contact.cshtml" />
+    <Content Remove="Views\Web\shop-detail.cshtml" />
+    <Content Remove="Views\Web\shop2.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\register.cshtml" />
+    <None Include="Views\Web\cart.cshtml" />
+    <None Include="Views\Web\chackout.cshtml" />
+    <None Include="Views\Web\contact - Copy.cshtml" />
+    <None Include="Views\Web\contact.cshtml" />
+    <None Include="Views\Web\shop-detail.cshtml" />
+    <None Include="Views\Web\shop2.cshtml" />
+  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.23" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.23" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.23" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.23" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.23">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="wwwroot\media\" />
+	</ItemGroup>
+
+</Project>

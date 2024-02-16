@@ -1,0 +1,68 @@
+﻿@model Admin_panel.Models.Data.Product
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "PDetails";
+}
+
+<h3>Product Details</h3>
+
+<div>
+   
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+           Product Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.p_name)
+        </dd>
+        <dt class = "col-sm-2">
+           Description
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.p_description)
+        </dd>
+        <dt class = "col-sm-2">
+           Product M.R.P
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.p_mrp)
+        </dd>
+        <dt class = "col-sm-2">
+           Product Price
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.p_price)
+        </dd>
+        <dt class = "col-sm-2">
+           Product Stock
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.p_stock)
+        </dd>
+        <dt class = "col-sm-2">
+           Product Category
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.p_cat.cat_name)
+        </dd>
+        <dt class = "col-sm-2">
+         Super Market
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.p_spmart.sp_name)
+        </dd>
+        <dt class = "col-sm-2 mt-2">
+           Product Image
+        </dt>
+        <dd class = "col-sm-10 mt-2">
+            <img src="~/media/@Html.DisplayFor(model => model.p_img)" width="120px" />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="PEdit" asp-route-id="@Model?.p_id">Edit</a> |
+    <a class="btn btn-secondary" asp-action="ProdList">Back to List</a>
+</div>

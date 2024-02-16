@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Admin_panel.Models.Data.Product>
+@{
+    Layout = "_Layout";
+}
+@{
+    ViewData["Title"] = "ProdList";
+}
+
+<h3>Product List</h3>
+
+<p>
+    <a class="btn btn-primary" asp-action="AddProduct">Add Product</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Product Name
+            </th>
+          @*   <th>
+               Description
+            </th> *@
+            <th>
+                M.R.P
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                 Stock
+            </th>
+           @*  <th>
+               Product Catagory
+            </th>
+            <th>
+               Product Supet Market
+            </th> *@
+            <th>
+              Product Image
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_name)
+            </td>
+          @*   <td>
+                @Html.DisplayFor(modelItem => item.p_description)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.p_mrp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_stock)
+            </td>
+           @*  <td>
+                @Html.DisplayFor(modelItem => item.p_cat.cat_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p_spmart.sp_name)
+            </td> *@
+            <td>
+                <img src="~/media/@Html.DisplayFor(modelItem => item.p_img)" width="120px" height="80px" />
+            </td>
+            <td>
+               @*  <a asp-action="Edit" asp-route-id="@item.p_id">Edit</a> | *@
+                <a class="btn btn-secondary" asp-action="PDetails" asp-route-id="@item.p_id">Details</a> |
+                <a class="btn btn-danger" asp-action="PDelete" asp-route-id="@item.p_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
